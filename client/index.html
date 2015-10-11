@@ -18,10 +18,10 @@
     <!-- Squad theme CSS -->
     <link href="css/style.css" rel="stylesheet">
 	<link href="color/default.css" rel="stylesheet">
-
+  <link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet">
 </head>
 
-<body id="page-top" data-spy="scroll" data-target=".navbar-custom">
+<body id="page-top" data-spy="scroll" data-target=".navbar-custom" ng-controller="travelController">
 	<!-- Preloader -->
 	<div id="preloader">
 	  <div id="load"></div>
@@ -33,8 +33,7 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="index.html">
-                    <h1>SQUAD FREE</h1>
+                <a class="navbar-brand title-name" href="index.html">TripeyGo
                 </a>
             </div>
 
@@ -62,10 +61,48 @@
 
 	<!-- Section: intro -->
     <section id="intro" class="intro">
-	
+
 		<div class="slogan">
-			<h2>WELCOME TO <span class="text_color">SQUAD</span> </h2>
-			<h4>WE ARE GROUP OF GENTLEMEN MAKING AWESOME WEB WITH BOOTSTRAP</h4>
+      <div class="search">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+              <div class="form-section">
+                <div class="row">
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="sr-only" for="location">Location</label>
+                          <input type="email" class="form-control" id="location" placeholder="Where ?">
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label class="sr-only" for="checkin">Check in</label>
+                          <div class="input-group">
+                            <input type="text" class="form-control" id="startJourney" placeholder="Start Date">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label class="sr-only" for="checkout">Check out</label>
+                          <div class="input-group">
+                            <input type="text" class="form-control" id="endJourney" placeholder="End Date">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-2">
+                        <button type="submit" class="btn btn-default btn-primary" ng-click="searchVehicle()">Search</button>
+                      </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 		</div>
 		<div class="page-scroll">
 			<a href="#service" class="btn btn-circle">
@@ -74,7 +111,37 @@
 		</div>
     </section>
 	<!-- /Section: intro -->
+  <section id="searchResult" class="home-section text-center bg-gray" ng-show="displaySearchResults">
+    <div class="container">
+    <div class="row">
+            <div class="col-md-12">
+                <ul class="row-fluid">
+                  <li class="col-md-12 search-item" ng-repeat="i in getNumber(10) track by $index">
+                      <span class="label label-success pull-left availability">Available</span>
+                    <div class="vehicle-img col-md-2">
+                      <img src="img/t1.png" />
+                    </div>
+                    <div class="vehicle-info col-md-9">
+                      <div class="name col-md-3">
+                        <span class="pull-left">Tempo Traveller</span>
+                      </div>
+                      <div class="seat-info col-md-2">
+                        <span>12 Seater</span>
+                      </div>
+                      <div class="price-info col-md-4">
+                        <span class="rupee-symobol">₹</span><span class="price">12/km</span>
+                      </div>
+                      <div class="book-btn col-md-3">
+                        <button type="submit" class="btn btn-default btn-primary">Book</button>
+                      </div>
 
+                    </div>
+                  </li>
+                </ul>
+            </div>
+        </div>
+      </div>
+  </section>
 	<!-- Section: about -->
     <section id="about" class="home-section text-center">
 		<div class="heading-about">
@@ -100,62 +167,16 @@
 			</div>
 		</div>
         <div class="row">
-            <div class="col-xs-6 col-sm-3 col-md-3">
-				<div class="wow bounceInUp" data-wow-delay="0.2s">
-                <div class="team boxed-grey">
-                    <div class="inner">
-						<h5>Anna Hanaceck</h5>
-                        <p class="subtitle">Pixel Crafter</p>
-                        <div class="avatar"><img src="img/team/1.jpg" alt="" class="img-responsive img-circle" /></div>
-                    </div>
-                </div>
-				</div>
-            </div>
-			<div class="col-xs-6 col-sm-3 col-md-3">
-				<div class="wow bounceInUp" data-wow-delay="0.5s">
-                <div class="team boxed-grey">
-                    <div class="inner">
-						<h5>Maura Daniels</h5>
-                        <p class="subtitle">Ruby on Rails</p>
-                        <div class="avatar"><img src="img/team/2.jpg" alt="" class="img-responsive img-circle" /></div>
 
-                    </div>
-                </div>
-				</div>
-            </div>
-			<div class="col-xs-6 col-sm-3 col-md-3">
-				<div class="wow bounceInUp" data-wow-delay="0.8s">
-                <div class="team boxed-grey">
-                    <div class="inner">
-						<h5>Jack Briane</h5>
-                        <p class="subtitle">jQuery Ninja</p>
-                        <div class="avatar"><img src="img/team/3.jpg" alt="" class="img-responsive img-circle" /></div>
-
-                    </div>
-                </div>
-				</div>
-            </div>
-			<div class="col-xs-6 col-sm-3 col-md-3">
-				<div class="wow bounceInUp" data-wow-delay="1s">
-                <div class="team boxed-grey">
-                    <div class="inner">
-						<h5>Tom Petterson</h5>
-                        <p class="subtitle">Typographer</p>
-                        <div class="avatar"><img src="img/team/4.jpg" alt="" class="img-responsive img-circle" /></div>
-
-                    </div>
-                </div>
-				</div>
-            </div>
-        </div>		
+        </div>
 		</div>
 	</section>
 	<!-- /Section: about -->
-	
+
 
 	<!-- Section: services -->
     <section id="service" class="home-section text-center bg-gray">
-		
+
 		<div class="heading-about">
 			<div class="container">
 			<div class="row">
@@ -178,65 +199,14 @@
 			</div>
 		</div>
         <div class="row">
-            <div class="col-sm-3 col-md-3">
-				<div class="wow fadeInLeft" data-wow-delay="0.2s">
-                <div class="service-box">
-					<div class="service-icon">
-						<img src="img/icons/service-icon-1.png" alt="" />
-					</div>
-					<div class="service-desc">
-						<h5>Print</h5>
-						<p>Vestibulum tincidunt enim in pharetra malesuada. Duis semper magna metus electram accommodare.</p>
-					</div>
-                </div>
-				</div>
-            </div>
-			<div class="col-sm-3 col-md-3">
-				<div class="wow fadeInUp" data-wow-delay="0.2s">
-                <div class="service-box">
-					<div class="service-icon">
-						<img src="img/icons/service-icon-2.png" alt="" />
-					</div>
-					<div class="service-desc">
-						<h5>Web Design</h5>
-						<p>Vestibulum tincidunt enim in pharetra malesuada. Duis semper magna metus electram accommodare.</p>
-					</div>
-                </div>
-				</div>
-            </div>
-			<div class="col-sm-3 col-md-3">
-				<div class="wow fadeInUp" data-wow-delay="0.2s">
-                <div class="service-box">
-					<div class="service-icon">
-						<img src="img/icons/service-icon-3.png" alt="" />
-					</div>
-					<div class="service-desc">
-						<h5>Photography</h5>
-						<p>Vestibulum tincidunt enim in pharetra malesuada. Duis semper magna metus electram accommodare.</p>
-					</div>
-                </div>
-				</div>
-            </div>
-			<div class="col-sm-3 col-md-3">
-				<div class="wow fadeInRight" data-wow-delay="0.2s">
-                <div class="service-box">
-					<div class="service-icon">
-						<img src="img/icons/service-icon-4.png" alt="" />
-					</div>
-					<div class="service-desc">
-						<h5>Cloud System</h5>
-						<p>Vestibulum tincidunt enim in pharetra malesuada. Duis semper magna metus electram accommodare.</p>
-					</div>
-                </div>
-				</div>
-            </div>
-        </div>		
+
+        </div>
 		</div>
 	</section>
 	<!-- /Section: services -->
-	
 
-	
+
+
 
 	<!-- Section: contact -->
     <section id="contact" class="home-section text-center">
@@ -301,29 +271,27 @@
                         </div>
                     </div>
                     <div class="col-md-12">
-                        <button type="submit" class="btn btn-skin pull-right" id="btnContactUs">
+                        <button type="submit class="btn btn-skin pull-right" id="btnContactUs">
                             Send Message</button>
                     </div>
                 </div>
                 </form>
             </div>
         </div>
-		
+
 		<div class="col-lg-4">
 			<div class="widget-contact">
 				<h5>Main Office</h5>
-				
+
 				<address>
-				  <strong>Squas Design, Inc.</strong><br>
-				  Tower 795 Folsom Ave, Beautiful Suite 600<br>
-				  San Francisco, CA 94107<br>
-				  <abbr title="Phone">P:</abbr> (123) 456-7890
+				  <strong>Lucknow<br>
+				  <abbr title="Phone">P:</abbr>
 				</address>
 
 				<address>
 				  <strong>Email</strong><br>
 				  <a href="mailto:#">email.name@example.com</a>
-				</address>	
+				</address>
 				<address>
 				  <strong>We're on social networks</strong><br>
                        	<ul class="company-social">
@@ -331,12 +299,12 @@
                             <li class="social-twitter"><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
                             <li class="social-dribble"><a href="#" target="_blank"><i class="fa fa-dribbble"></i></a></li>
                             <li class="social-google"><a href="#" target="_blank"><i class="fa fa-google-plus"></i></a></li>
-                        </ul>	
-				</address>					
-			
-			</div>	
+                        </ul>
+				</address>
+
+			</div>
 		</div>
-    </div>	
+    </div>
 
 		</div>
 	</section>
@@ -353,26 +321,26 @@
 						</a>
 					</div>
 					</div>
-					<p>&copy;Copyright 2014 - Squad. All rights reserved. Designed by <a href="http://bootstraptaste.com">Bootstrap Themes</a></p>
-                    <!-- 
-                        All links in the footer should remain intact. 
-                        Licenseing information is available at: http://bootstraptaste.com/license/
-                        You can buy this theme without footer links online at: http://bootstraptaste.com/buy/?theme=Squadfree
-                    -->
+
 				</div>
-			</div>	
+			</div>
 		</div>
 	</footer>
 
     <!-- Core JavaScript Files -->
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.easing.min.js"></script>	
+    <script src="js/jquery.easing.min.js"></script>
 	<script src="js/jquery.scrollTo.js"></script>
 	<script src="js/wow.min.js"></script>
     <!-- Custom Theme JavaScript -->
     <script src="js/custom.js"></script>
-
+    <script src="js/bootstrap-datetimepicker.min.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/travelController.js"></script>
+    <script type="text/javascript">
+    </script>
 </body>
 
 </html>
