@@ -1,0 +1,55 @@
+{
+  "name": "Vehicle",
+  "plural": "Vehicles",
+  "base": "PersistedModel",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "registrationnumber": {
+      "type": "string",
+      "required": true,
+      "id":true
+    },
+    "type": {
+      "type": "string"
+    },
+    "drivername": {
+      "type": "string"
+    },
+    "bookedFrom":{
+      "type":"date",
+      "default":null
+    },
+    "bookedTill":{
+      "type":"date",
+      "default":null
+    },
+    "images": {
+      "type": [
+        "string"
+      ]
+    },
+    "seater": {
+      "type": "string"
+    },
+    "rate": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "vendor": {
+      "type": "belongsTo",
+      "model": "Vendor",
+      "foreignKey": ""
+    }
+  },
+  "acls": [{
+    "principalType": "ROLE",
+    "principalId": "$everyone",
+    "permission": "ALLOW",
+    "property": "searchVehicle"
+  }],
+  "methods": []
+}

@@ -1,0 +1,63 @@
+{
+  "name": "Booking",
+  "base": "PersistedModel",
+  "strict": false,
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "bookingId": {
+      "type": "string",
+      "required": true,
+      "id":true
+    },
+    "name":{
+      "type":"string"
+    },
+    "email":{
+      "type":"string"
+    },
+    "phoneNumber":{
+      "type":"string"
+    },
+    "pickupLocation":{
+      "type":"string"
+    },
+    "dropLocation":{
+      "type":"string"
+    },
+    "vehcleId":{
+      "type":"string"
+    },
+    "vendorId":{
+      "type":"string"
+    },
+    "drivername":{
+      "type":"string"
+    },
+    "bookedTill":{
+      "type":"date"
+    },
+    "bookedFrom":{
+      "type":"date"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "customer": {
+      "type": "belongsTo",
+      "model": "Customer",
+      "foreignKey": ""
+    }
+  },
+  "acls": [
+  {
+    "accessType": "*",
+    "principalType": "ROLE",
+    "principalId": "$owner",
+    "permission": "ALLOW",
+    "property": "create"
+  }],
+  "methods": []
+}

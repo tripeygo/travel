@@ -1,0 +1,603 @@
+<!-- Preloader -->
+<div id="preloader">
+  <div id="load"></div>
+</div>
+
+  <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+      <div class="container">
+          <div class="navbar-header page-scroll">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                  <i class="fa fa-bars"></i>
+              </button>
+              <a class="navbar-brand title-name" href="index.html">test page
+              </a>
+          </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#intro">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#service">Service</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Example menu</a></li>
+          <li><a href="#">Example menu</a></li>
+          <li><a href="#">Example menu</a></li>
+        </ul>
+      </li>
+      <li><span data-toggle="modal" data-target="#loginModal" data-body="signUp-body" ng-click="loginToggle('signUp-body')" ng-show="!loginSuccessful">Sign Up</span></li>
+      <li><span href data-toggle="modal" data-target="#loginModal" data-body="login-body" ng-click="loginToggle('login-body')" ng-show="!loginSuccessful">Login</span></li>
+      <li><span href ng-click='logoutUser()' ng-show="loginSuccessful">Logout</span></li>
+      <li><span ng-show="loginSuccessful">Hi {{loginData.name}}</span></li>
+    </ul>
+          </div>
+          <!-- /.navbar-collapse -->
+      </div>
+      <!-- /.container -->
+  </nav>
+
+<!-- Section: intro -->
+  <section id="intro" class="intro">
+
+  <div class="slogan">
+    <div class="search">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <div class="form-section">
+              <div class="row">
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label class="sr-only" for="location">Location</label>
+                        <input type="email" class="form-control" id="location" placeholder="Where ?">
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label class="sr-only" for="checkin">Check in</label>
+                        <div class="input-group">
+                          <input type="text" class="form-control" id="startJourney" placeholder="Start Date">
+                          <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="form-group">
+                        <label class="sr-only" for="checkout">Check out</label>
+                        <div class="input-group">
+                          <input type="text" class="form-control" id="endJourney" placeholder="End Date">
+                          <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-2">
+                      <button type="submit" class="btn btn-default btn-primary" ng-click="searchVehicle()">Search</button>
+                    </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page-scroll">
+    <a href="#service" class="btn btn-circle">
+      <i class="fa fa-angle-double-down animated"></i>
+    </a>
+  </div>
+  </section>
+<!-- /Section: intro -->
+<section id="searchResult" class="home-section text-center bg-gray" ng-show="displaySearchResults">
+  <div class="container">
+  <div class="row">
+          <div class="col-md-12">
+              <ul class="row-fluid">
+                <li class="col-md-12 search-item" ng-repeat="vehicle in vehicles">
+                    <span class="label label-success pull-left availability">Available</span>
+                  <div class="vehicle-img col-md-2">
+                    <img src="img/t1.png" />
+                  </div>
+                  <div class="vehicle-info col-md-9">
+                    <div class="name col-md-3">
+                      <span class="pull-left">{{vehicle.name}}</span>
+                    </div>
+                    <div class="seat-info col-md-2">
+                      <span>{{vehicle.seater}}</span>
+                    </div>
+                    <div class="price-info col-md-4">
+                      <span class="rupee-symobol">₹</span><span class="price">{{vehicle.rate}}</span>
+                    </div>
+                    <div class="book-btn col-md-3">
+                      <button type="submit" class="btn btn-default btn-primary">Book</button>
+                    </div>
+
+                  </div>
+                </li>
+              </ul>
+          </div>
+      </div>
+    </div>
+</section>
+<!-- Section: about -->
+  <section id="about" class="home-section text-center">
+  <div class="heading-about">
+    <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2">
+        <div class="wow bounceInDown" data-wow-delay="0.4s">
+        <div class="section-heading">
+        <h2>About us</h2>
+        <i class="fa fa-2x fa-angle-down"></i>
+
+        </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+  <div class="container">
+
+  <div class="row">
+    <div class="col-lg-2 col-lg-offset-5">
+      <hr class="marginbot-50">
+    </div>
+  </div>
+      <div class="row">
+
+      </div>
+  </div>
+</section>
+<!-- /Section: about -->
+
+
+<!-- Section: services -->
+  <section id="service" class="home-section text-center bg-gray">
+
+  <div class="heading-about">
+    <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2">
+        <div class="wow bounceInDown" data-wow-delay="0.4s">
+        <div class="section-heading">
+        <h2>Our Services</h2>
+        <i class="fa fa-2x fa-angle-down"></i>
+
+        </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+  <div class="container">
+  <div class="row">
+    <div class="col-lg-2 col-lg-offset-5">
+      <hr class="marginbot-50">
+    </div>
+  </div>
+      <div class="row">
+
+      </div>
+  </div>
+</section>
+<!-- /Section: services -->
+
+
+
+
+<!-- Section: contact -->
+  <section id="contact" class="home-section text-center">
+  <div class="heading-contact">
+    <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2">
+        <div class="wow bounceInDown" data-wow-delay="0.4s">
+        <div class="section-heading">
+        <h2>Get in touch</h2>
+        <i class="fa fa-2x fa-angle-down"></i>
+
+        </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+  <div class="container">
+
+  <div class="row">
+    <div class="col-lg-2 col-lg-offset-5">
+      <hr class="marginbot-50">
+    </div>
+  </div>
+  <div class="row">
+      <div class="col-lg-8">
+          <div class="boxed-grey">
+              <form id="contact-form">
+              <div class="row">
+                  <div class="col-md-6">
+                      <div class="form-group">
+                          <label for="name">
+                              Name</label>
+                          <input type="text" class="form-control" id="name" placeholder="Enter name" required="required" />
+                      </div>
+                      <div class="form-group">
+                          <label for="email">
+                              Email Address</label>
+                          <div class="input-group">
+                              <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
+                              </span>
+                              <input type="email" class="form-control" id="email" placeholder="Enter email" required="required" /></div>
+                      </div>
+                      <div class="form-group">
+                          <label for="subject">
+                              Subject</label>
+                          <select id="subject" name="subject" class="form-control" required="required">
+                              <option value="na" selected="">Choose One:</option>
+                              <option value="service">General Customer Service</option>
+                              <option value="suggestions">Suggestions</option>
+                              <option value="product">Product Support</option>
+                          </select>
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="form-group">
+                          <label for="name">
+                              Message</label>
+                          <textarea name="message" id="message" class="form-control" rows="9" cols="25" required="required"
+                              placeholder="Message"></textarea>
+                      </div>
+                  </div>
+                  <div class="col-md-12">
+                      <button type="submit" class="btn btn-skin pull-right" id="btnContactUs">
+                          Send Message</button>
+                  </div>
+              </div>
+              </form>
+          </div>
+      </div>
+
+  <div class="col-lg-4">
+    <div class="widget-contact">
+      <h5>Main Office</h5>
+
+      <address>
+        <strong>Lucknow<br>
+        <abbr title="Phone">P:</abbr>
+      </address>
+
+      <address>
+        <strong>Email</strong><br>
+        <a href="mailto:#">email.name@example.com</a>
+      </address>
+      <address>
+        <strong>We're on social networks</strong><br>
+                      <ul class="company-social">
+                          <li class="social-facebook"><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                          <li class="social-twitter"><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                          <li class="social-dribble"><a href="#" target="_blank"><i class="fa fa-dribbble"></i></a></li>
+                          <li class="social-google"><a href="#" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+                      </ul>
+      </address>
+
+    </div>
+  </div>
+  </div>
+
+  </div>
+</section>
+<!-- /Section: contact -->
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-lg-12">
+        <div class="wow shake" data-wow-delay="0.4s">
+        <div class="page-scroll marginbot-30">
+          <a href="#intro" id="totop" class="btn btn-circle">
+            <i class="fa fa-angle-double-up animated"></i>
+          </a>
+        </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</footer>
+<!--Login Modal -->
+<div id="loginModal" class="modal fade" role="dialog">
+<div class="modal-dialog">
+
+  <!-- Modal content-->
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+      <div id="loginArea">
+        <div id="signUp">
+          <span class="loginOption signUp-body" data-body="signUp-body" ng-click="loginToggle('signUp-body')">SIGNUP</span>
+        </div>
+        <div id="login">
+          <span class="loginOption login-body" data-body="login-body"   ng-click="loginToggle('login-body')">LOGIN</span>
+        </div>
+        <div id="forgotPassword">
+          <span class="loginOption forgotPassword-body" data-body="forgotPassword-body" ng-click="loginToggle('forgotPassword-body')" ng-show="forgot">Forgot Password</span>
+        </div>
+        <div id="passwordReset">
+          <span class="loginOption passwordReset-body" data-body="passwordReset-body" ng-click="loginToggle('passwordReset-body')" ng-show="forgot">Reset Password</span>
+        </div>
+      </div>
+    </div>
+    <div class="modal-body signUp-body">
+
+          <!-- START Registration form -->
+
+          <div class="panel panel-form">
+            <!-- Form header -->
+              <div class="panel-body">
+              <form role="form">
+                <!-- Name -->
+                <!-- Email -->
+                <div class="form-group">
+                  <label for="email" class="control-label">Email <span class="required-field">*</span></label>
+                  <div class="has-feedback">
+                    <input type="email" class="form-control" id="email" ng-model='email' required>
+                    <span class="fa fa-envelope form-control-feedback" aria-hidden="true"></span>
+                  </div>
+                </div>
+
+                <!-- Passwords -->
+                <div class="row">
+                  <div class="col-sm-12 form-group">
+                    <label for="password1" class="control-label">Password <span class="required-field">*</span></label>
+                    <div class="has-feedback">
+                      <input type="password" class="form-control" id="password1" ng-model='password' required>
+                      <span class="fa fa-lock form-control-feedback" aria-hidden="true"></span>
+                    </div>
+                    <p class="help-block">At least 6 characters long.</p>
+                  </div>
+
+                </div>
+
+                <!-- Name and gender -->
+                <div class="row">
+                  <div class="col-sm-8 form-group">
+                    <label for="name" class="control-label">Your name <span class="required-field">*</span></label>
+                    <input type="text" class="form-control" id="name" ng-model='name' required>
+                  </div>
+
+                  <div class="col-sm-4 form-group">
+                    <label for="gender" class="control-label">Gender</label>
+                    <div class="fancy-select"><select class="custom-select" ng-model='gender' id="gender" style="width: 1px; height: 1px; display: block; position: absolute; top: 0px; left: 0px; opacity: 0;" required>
+                      <option value=''>Select</option>
+                      <option value="male">Male</option>
+                      <option value="female">Femaile</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+                <!-- Country -->
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-sm-6">
+                  <label for="state" class="control-label">State</label>
+                  <div class="fancy-select state"><select class="custom-select" id="state" style="width: 1px; height: 1px; display: block; position: absolute; top: 0px; left: 0px; opacity: 0;" required>
+                    <option value=''>Select</option>
+                    <option ng-repeat="(state,city) in countries['India']" value='{{state}}'>{{state}}</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-sm-6">
+            <label for="city" class="control-label">City</label>
+            <div class="fancy-select city"><select id="city" style="width: 1px; height: 1px; display: block; position: absolute; top: 0px; left: 0px; opacity: 0;"  ng-model="city" required>
+              <option value=''>Select</option>
+                <option ng-repeat="city in citiessource" value='{{city}}'>{{city}}</option>
+            </select>
+          </div>
+        </div>
+              </div>
+              </div>
+                <!-- Birthday -->
+                <div class="form-group">
+                  <label class="control-label">Birthday</label>
+                  <div class="row">
+                    <div class="col-sm-4">
+                      <div class="fancy-select"><select class="custom-select" id="day" style="width: 1px; height: 1px; display: block; position: absolute; top: 0px; left: 0px; opacity: 0;" required>
+                        <option value="">Day</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value="21">21</option>
+                        <option value="22">22</option>
+                        <option value="23">23</option>
+                        <option value="24">24</option>
+                        <option value="25">25</option>
+                        <option value="26">26</option>
+                        <option value="27">27</option>
+                        <option value="28">28</option>
+                        <option value="29">29</option>
+                        <option value="30">30</option>
+                        <option value="31">31</option>
+                      </select>
+                    </div>
+                  </div>
+
+                    <div class="col-sm-4">
+                      <div class="fancy-select"><select class="custom-select" id="month" style="width: 1px; height: 1px; display: block; position: absolute; top: 0px; left: 0px; opacity: 0;" required>
+                        <option value="">Month</option>
+                        <option value="January">January</option>
+                        <option value="February">February</option>
+                        <option value="March">March</option>
+                        <option value="April">April</option>
+                        <option value="May">May</option>
+                        <option value="June">June</option>
+                        <option value="July">July</option>
+                        <option value="August">August</option>
+                        <option value="September">September</option>
+                        <option value="October">October</option>
+                        <option value="November">November</option>
+                        <option value="December">December</option>
+                      </select>
+                    </div>
+                  </div>
+
+                    <div class="col-sm-4">
+                      <div class="fancy-select"><select class="custom-select" id="year" style="width: 1px; height: 1px; display: block; position: absolute; top: 0px; left: 0px; opacity: 0;" required>
+                        <option value="">Year</option>
+                        <option value="2000">2000</option>
+                        <option value="1999">1999</option>
+                        <option value="1998">1998</option>
+                        <option value="1997">1997</option>
+                        <option value="1996">1996</option>
+                        <option value="1995">1995</option>
+                        <option value="1994">1994</option>
+                        <option value="1993">1993</option>
+                        <option value="1992">1992</option>
+                        <option value="1991">1991</option>
+                        <option value="1990">1990</option>
+                        <option value="1989">1989</option>
+                        <option value="1988">1988</option>
+                        <option value="1987">1987</option>
+                        <option value="1986">1986</option>
+                        <option value="1985">1985</option>
+                        <option value="1984">1984</option>
+                        <option value="1983">1983</option>
+                        <option value="1982">1982</option>
+                        <option value="1981">1981</option>
+                        <option value="1980">1980</option>
+                        <option value="1979">1979</option>
+                        <option value="1978">1978</option>
+                        <option value="1977">1977</option>
+                        <option value="1976">1976</option>
+                        <option value="1975">1975</option>
+                        <option value="1974">1974</option>
+                        <option value="1973">1973</option>
+                        <option value="1972">1972</option>
+                        <option value="1971">1971</option>
+                        <option value="1970">1970</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+                <!-- Agree static text -->
+                <div class="form-group">
+                  <p class="form-control-static">
+                    Do you agree to the <a href="#">User Agreement</a> and <a href="#">Privacy Policy</a>,
+                    and terms incorporated therein?
+                  </p>
+                </div>
+
+                <!-- Create button -->
+                <div class="form-group text-center">
+                  <input class="btn btn-info" id="submit" name="submit" ng-click="signupNewUser()" type="submit" value="Agree and Create Account">
+                </div>
+              </form>
+            </div>
+            <!-- Form footer -->
+            <div class="panel-footer">
+              <span class="required-field">*</span> - required field
+            </div>
+          </div>
+
+          <!-- END Registration form -->
+
+
+    </div>
+
+
+  <div class="modal-body login-body">
+    <div class="panel-body">
+    <form role="form">
+      <!-- Email -->
+      <div class="form-group">
+        <label for="email" class="control-label">Email <span class="required-field">*</span></label>
+        <div class="has-feedback">
+          <input type="email" class="form-control" id="email" ng-model="loginEmail">
+          <span class="fa fa-envelope form-control-feedback" aria-hidden="true"></span>
+        </div>
+      </div>
+
+      <!-- Passwords -->
+        <div class="form-group">
+          <label for="password1" class="control-label">Password <span class="required-field">*</span></label>
+          <div class="has-feedback">
+            <input type="password" class="form-control" id="password1" ng-model="loginPassword">
+            <span class="fa fa-lock form-control-feedback" aria-hidden="true"></span>
+          </div>
+        </div>
+        <!-- Create button -->
+        <div class="form-group text-center">
+          <button type="button" class="btn btn-primary" ng-click='loginUser()'>Login</button>
+          <a class="btn btn-link" href="#" ng-click="forgotPassword()">Forgotten your password?</a>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="modal-body forgotPassword-body">
+    <div class="panel-body">
+    <form role="form">
+      <!-- Email -->
+      <div class="form-group">
+        <label for="email" class="control-label">Email <span class="required-field">*</span></label>
+        <div class="has-feedback">
+          <input type="email" class="form-control" id="email" ng-model="resetEmail">
+          <span class="fa fa-envelope form-control-feedback" aria-hidden="true"></span>
+        </div>
+      </div>
+        <!-- Create button -->
+        <div class="form-group text-center">
+          <button type="button" class="btn btn-primary" ng-click='sendResetLink()'>Send Reset Link</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="modal-body passwordReset-body">
+    <div class="panel-body">
+    <form role="form">
+      <!-- Passwords -->
+        <div class="form-group">
+          <label for="password1" class="control-label">Password <span class="required-field">*</span></label>
+          <div class="has-feedback">
+            <input type="password" class="form-control" id="password1" ng-model="newpassword">
+            <span class="fa fa-lock form-control-feedback" aria-hidden="true"></span>
+          </div>
+        </div>
+        <!-- Create button -->
+        <div class="form-group text-center">
+          <button type="button" class="btn btn-primary" ng-click='resetPassword()'>Reset Password</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="alert alert-success" ng-show='success'>
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Success!</strong> {{signUpMessage}}
+  </div>
+  <div class="alert alert-danger" ng-show='failure'>
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Error!</strong> {{signUpMessage}}
+    <a class="btn btn-link" href="#" ng-click="forgotPassword()">Forgotten your password?</a>
+  </div>
+</div>
+</div>
+</div>

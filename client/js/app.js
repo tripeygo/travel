@@ -2,7 +2,7 @@
 window.App = (function () {
     var _init, _appLoad = [];
     return {
-        ngApp: angular.module("tripeygo", []),
+        ngApp: angular.module("tripeygo", ['ngRoute']),
         init: function () {
             if (!_init) {
                 _init = true;

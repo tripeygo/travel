@@ -696,13 +696,7 @@ Parallax
 }
 
 
-.btn-default:hover,
-.btn-default:focus {
-    border: 1px solid #28c3ab;
-    outline: 0;
-    color: #000;
-    background-color: #28c3ab;
-}
+
 
 .btn-huge {
     padding: 25px;
@@ -801,9 +795,7 @@ Parallax
   margin-bottom: 0px;
 }
 .search-item{
-  height: 110px;
   list-style: none;
-  background-color: #fff;
   margin-top: 10px;
 }
 .title-name{
@@ -838,11 +830,12 @@ Parallax
     color: #000;
 }
 .seat-info span{
-  font-size: 16px;
+  font-size: 20px;
     float: right;
     margin: 10px 0 0 10px;
     font-family: 'Droid Sans','Arial',sans-serif;
-    width: auto;
+    width: 100%;
+    color: #000;
 }
 .name span{
   font-size: 16px;
@@ -853,4 +846,172 @@ Parallax
 }
 .book-btn button{
   margin-top: 5px;
+}
+#signUp{
+  float: left;
+  margin-right: 10px;
+  padding-right: 10px;
+  border-right: 1px solid #ccc;
+}
+#login{
+  float: left;
+  margin-right: 10px;
+  padding-right: 10px;
+  border-right: 1px solid #ccc;
+}
+.loginOption{
+  cursor: pointer;
+}
+.fancy-select {
+	position: relative;
+	color: #46565D;
+}
+
+	.fancy-select.disabled .form-control {
+		cursor: inherit;
+		opacity: 0.5;
+		background: #ddd;
+	}
+
+	.fancy-select .form-control {
+		position: relative;
+		overflow: hidden;
+		cursor: pointer;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+	}
+
+		.fancy-select .form-control:after {
+			position: absolute;
+			display: block;
+			content: "ï¸";
+			top: 50%;
+			right: 0;
+			margin: -6px 8px 0 0;
+			font-family: FontAwesome;
+			font-size: 12px;
+			line-height: 12px;
+			color: #999;
+		}
+
+	.fancy-select .form-control.open {
+		border-color: #4fd0fb;
+	}
+
+		.fancy-select .form-control.open:after {
+			margin-top: -4px;
+			color: #4fd0fb;
+			-webkit-transform:	rotate(180deg);
+			-moz-transform:		rotate(180deg);
+			transform:			rotate(180deg);
+		}
+
+	.fancy-select ul.options {
+		position: absolute;
+		visibility: hidden;
+		overflow: auto;
+		top: 100%;
+		left: 0;
+		width: 100%;
+		max-height: 200px;
+		margin: 0;
+		padding: 0;
+		border: 1px solid #ddd;
+		list-style: none;
+		z-index: 50;
+		background: #f6f6f6;
+		opacity: 0;
+		-webkit-box-shadow:	0 0 10px rgba(0, 0, 0, 0.05);
+		-moz-box-shadow:	0 0 10px rgba(0, 0, 0, 0.05);
+		box-shadow:			0 0 10px rgba(0, 0, 0, 0.05);
+	}
+
+	.fancy-select ul.options.open {
+		visibility: visible;
+		opacity: 1;
+	}
+
+	.fancy-select ul.options.overflowing {
+		top: auto;
+		bottom: 100%;
+	}
+
+	.fancy-select ul.options.overflowing.open {
+		top: auto;
+	}
+
+		.fancy-select ul.options li {
+			padding: 8px 12px;
+			cursor: pointer;
+			white-space: nowrap;
+			color: #666;
+		}
+
+		.fancy-select ul.options li.hover {
+			color: #000;
+			background: #eee;
+		}
+
+
+		.fancy-select ul.options li.selected {
+			color: #fff;
+			background: #ccc;
+		}
+		.has-feedback .form-control-feedback{
+      top: 0px;
+    }
+    .nav>li>span {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+    .navbar-nav>li>span {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    line-height: 20px;
+}
+    @media (min-width: 768px){
+    .navbar-nav>li>span {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    }
+  }
+    .navbar-custom .nav li span {
+    -webkit-transition: background .3s ease-in-out;
+    -moz-transition: background .3s ease-in-out;
+    transition: background .3s ease-in-out;
+}
+    .navbar-custom ul.nav li span {
+        font-size: 12px;
+        letter-spacing: 1px;
+        color: #444;
+        text-transform: uppercase;
+        font-weight: 700;
+    }
+    .underline{
+      color: black;
+      border-bottom-width: 2px;
+      border-bottom-style: solid;
+      border-bottom-color: rgb(0, 0, 0);
+    }
+    .form-group {
+        margin-bottom: 15px;
+    }
+.modal-header{
+  padding-bottom: 0px;
+}
+#loginArea{
+  padding-bottom: 15px;
+  min-height: 30px;
+}
+#forgotPassword{
+  float: left;
+  margin-right: 10px;
+  padding-right: 10px;
+  border-right: 1px solid #ccc;
+}
+.vehicle-extra-info span{
+  margin-left: 10px;
+    font-weight: 900;
 }

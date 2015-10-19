@@ -2,7 +2,8 @@ var loopback = require('loopback');
 var boot = require('loopback-boot');
 
 var app = module.exports = loopback();
-
+var config = require('../config').loadConfig();
+global.config = config;
 app.start = function() {
   // start the web server
   return app.listen(function() {

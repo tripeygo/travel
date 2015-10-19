@@ -2,5 +2,24 @@
   "db": {
     "name": "db",
     "connector": "memory"
+  },
+  "emailDs": {
+    "name": "emailDs",
+    "connector": "mail",
+    "transports": [
+      {
+        "type": "smtp",
+        "host": "smtp.zoho.com",
+        "secure": true,
+        "port": 465,
+        "tls": {
+          "rejectUnauthorized": false
+        },
+        "auth": {
+          "user": "contact@tripeygo.com",
+          "pass": "tripeygo@123"
+        }
+      }
+    ]
   }
 }

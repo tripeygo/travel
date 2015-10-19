@@ -5,5 +5,12 @@ module.exports = function(server) {
   router.get('/', function (req, resp, next) {
       resp.sendFile(path.resolve(__dirname, '../../client/index.html'));
   });
+  router.get('/home', function (req, resp, next) {
+    resp.redirect("/#/" + req.url);
+  });
+
+  router.get('/home/*', function (req, resp, next) {
+    resp.redirect("/#/" + req.url);
+  });
   server.use(router);
 };

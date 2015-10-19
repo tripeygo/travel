@@ -1,0 +1,42 @@
+{
+  "name": "Vendor",
+  "plural": "Vendors",
+  "base": "User",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "phonenumber": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "tinnumber": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "vehicles": {
+      "type": "hasMany",
+      "model": "Vehicle",
+      "foreignKey": ""
+    }
+  },
+  "acls": [{
+    "accessType": "*",
+    "principalType": "ROLE",
+    "principalId": "$owner",
+    "permission": "ALLOW",
+    "property": "__create__vehicles"
+  }],
+  "methods": []
+}

@@ -31,5 +31,31 @@
   "Role": {
     "dataSource": "db",
     "public": false
+  },
+  "Vendor": {
+    "dataSource": "db",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
+  },
+  "Vehicle": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Booking": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Customer": {
+    "dataSource": "db",
+    "public": true,
+    "$promise": {},
+    "$resolved": true,
+    "options": {
+      "emailVerificationRequired": true
+    }
+  },
+  "Email": {
+    "dataSource": "emailDs"
   }
 }

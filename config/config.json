@@ -1,0 +1,19 @@
+{
+  "common": {
+    "mongo": {
+      "connector": "mongodb",
+      "url": "mongodb://localhost/travel"
+    },
+    "restApiRoot": "/api",
+    "travelHost": "http://localhost:5000/"
+  },
+  "development": {},
+  "production": {
+    "mongo": {
+      "connector": "mongodb",
+      "url": "mongodb://10.70.15.104/leaderboard"
+    },
+    "restApiRoot": "/api",
+    "travelHost": "http://localhost:5000/"
+  }
+}
