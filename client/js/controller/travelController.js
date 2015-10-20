@@ -167,13 +167,18 @@ App.onAppLoad(function(ngApp){
         customerId:UserAuth.currentUserId
       }
       travelService.sendData(appConst.createBooking,postObj).then(function(response){
-        console.log(response);
+        $($scope.currentSearchHref).toggle();
+        $timeout(function(){
+          $window.scrollTo(0,0);
+        },1);
+        alert('Confirmation mail has been sent to you.');
       })
       console.log(postObj)
     }
     $scope.displayDetails=function(event){
       var href=$(event.currentTarget).data('href');
       var index=$(event.currentTarget).data('index');
+      $scope.currentSearchHref=href;
       $scope.selectedVehicle=$scope.vehicles[index];
       if(!UserAuth.isAuthenticated()){
         sessionStorage['acc']=href;
