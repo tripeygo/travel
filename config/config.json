@@ -11,9 +11,9 @@
   "production": {
     "mongo": {
       "connector": "mongodb",
-      "url": "mongodb://10.70.15.104/leaderboard"
+      "url": "mongodb://localhost/travel"
     },
     "restApiRoot": "/api",
-    "travelHost": "http://localhost:5000/"
+    "travelHost": "http://54.187.75.199:5000/"
   }
 }
