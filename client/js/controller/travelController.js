@@ -115,9 +115,9 @@ App.onAppLoad(function(ngApp){
             UserAuth.setUser($scope.loginData.id, $scope.loginData.userId, $scope.loginData.name,$scope.loginData.email);
             UserAuth.rememberMe = true;
             UserAuth.save();
-            if(sessionStorage['acc']){
-              $(sessionStorage['acc']).toggle();
-              sessionStorage['acc']=null;
+            if(localStorage['acc']){
+              $(localStorage['acc']).toggle();
+              localStorage['acc']=null;
             }
           }
           else if(response.status==401){
@@ -181,7 +181,7 @@ App.onAppLoad(function(ngApp){
       $scope.currentSearchHref=href;
       $scope.selectedVehicle=$scope.vehicles[index];
       if(!UserAuth.isAuthenticated()){
-        sessionStorage['acc']=href;
+        localStorage['acc']=href;
         $('#loginModal').modal('show');
         $scope.loginToggle('login-body');
       }
